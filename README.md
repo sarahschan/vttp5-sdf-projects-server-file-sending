@@ -6,4 +6,5 @@
 
 ## Usage
 Server: java -cp classes Server 8080 serverFiles/polarbear.jpg
+
 Client: java -cp classes Client localhost:8080
