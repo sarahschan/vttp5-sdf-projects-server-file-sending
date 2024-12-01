@@ -55,10 +55,14 @@ public class Client {
         
         // Read file name and create file object
         String fileName = dis.readUTF();
-        File csvFile = new File("clientFiles" + File.separator + fileName);
+        File directory = new File("clientRecieved");
+            if (!directory.exists() || !directory.isDirectory()){
+                directory.mkdirs();
+            }
+        File file = new File(directory + File.separator + fileName);
 
         // Receive file
-        FileOutputStream fos = new FileOutputStream(csvFile);
+        FileOutputStream fos = new FileOutputStream(file);
         byte[] buff = new byte[1024];
         int bytesRead;
         while ((bytesRead = dis.read(buff)) > 0) {
